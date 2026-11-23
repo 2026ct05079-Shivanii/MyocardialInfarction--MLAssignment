@@ -20,7 +20,7 @@ This is an educational machine-learning assignment, not a medical diagnostic too
 
 The dataset was selected because it is a public clinical classification dataset with more than 1,000 records and 12 features, contains meaningful missing-value and class-imbalance challenges, and supports a clinically relevant comparison of binary classifiers.
 
-![Target class distribution](model/class_distribution.png)
+![Target class distribution captured in Prayogshala BITS Virtual Lab](model/screenshots/05_class_distribution.png)
 
 ## 3. GitHub repository
 
@@ -29,6 +29,18 @@ The dataset was selected because it is a public clinical classification dataset 
 ## 4. Models used and evaluation results
 
 All models were fitted on the same stratified 80:20 split using seed 42. The held-out test set contains 340 patients (286 survived and 54 with lethal outcomes).
+
+### Model configurations
+
+| Model | Configuration |
+|---|---|
+| Logistic Regression | `max_iter=1000`, `class_weight="balanced"`, `random_state=42` |
+| Decision Tree | `max_depth=5`, `min_samples_leaf=10`, `class_weight="balanced"`, `random_state=42` |
+| kNN | `n_neighbors=7` |
+| Naive Bayes | `GaussianNB` |
+| Random Forest (Ensemble) | `n_estimators=300`, `max_depth=8`, `min_samples_leaf=5`, `class_weight="balanced"`, `random_state=42`, `n_jobs=-1` |
+
+The fitted estimators use the same training-only preprocessing described below. The saved model artifacts were generated with scikit-learn 1.6.1; use the pinned version in `requirements.txt` when loading them.
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---|---:|---:|---:|---:|---:|---:|
@@ -40,11 +52,15 @@ All models were fitted on the same stratified 80:20 split using seed 42. The hel
 
 ### Metric visualizations
 
-![Comparison of all six evaluation metrics](model/metrics_comparison.png)
+![Complete comparison of all six evaluation metrics](model/screenshots/11_metrics_comparison.png)
 
-![ROC curves and AUC comparison](model/roc_curves.png)
+![ROC curves and AUC comparison captured in Prayogshala BITS Virtual Lab](model/screenshots/10_roc_curves.png)
 
-![Confusion matrices for the test set](model/confusion_matrices.png)
+![Complete confusion matrices for all five models](model/screenshots/13_confusion_matrices.png)
+
+The original BITS captures of the metric comparison and confusion matrices are retained as [`11_metrics_comparison_bits_capture.png`](model/screenshots/11_metrics_comparison_bits_capture.png) and [`13_confusion_matrices_bits_capture.png`](model/screenshots/13_confusion_matrices_bits_capture.png). Those captures are clipped on the left; the complete charts above come from the notebook's full-resolution plot exports.
+
+The notebook-generated plots are also available in [`model/plots/`](model/plots/): [metric comparison](model/plots/metrics_comparison.png), [ROC curves](model/plots/roc_curves.png), and [confusion matrices](model/plots/confusion_matrices.png).
 
 ### Model performance observations
 
@@ -67,9 +83,11 @@ All models were fitted on the same stratified 80:20 split using seed 42. The hel
 - Fitted preprocessing on the training data only: median imputation and standard scaling for continuous features; most-frequent imputation and scaling for ordinal features; most-frequent imputation for binary features; and most-frequent imputation plus one-hot encoding for categorical features.
 - Saved the held-out test features and target in [`test_data.csv`](test_data.csv).
 
+![Missing-value analysis executed in Prayogshala BITS Virtual Lab](model/screenshots/06_missing_value_analysis.png)
+
 ## 6. Execution instructions and repository contents
 
-The repository includes the requested files and saved models. The notebook and evaluation figures are kept inside `model/` so the project root matches the required layout.
+The repository includes the requested files and saved models. The notebook stays directly inside `model/`; saved estimators, generated plots, and Prayogshala BITS Virtual Lab screenshots are grouped into separate subfolders.
 
 ```text
 project-folder/
@@ -78,16 +96,34 @@ project-folder/
 ├── test_data.csv
 └── model/
     ├── Myocardial_Infarction_ML.ipynb
-    ├── decision_tree.joblib
-    ├── knn.joblib
-    ├── logistic_regression.joblib
-    ├── naive_bayes.joblib
-    ├── preprocessor.joblib
-    ├── random_forest_ensemble.joblib
-    ├── class_distribution.png
-    ├── metrics_comparison.png
-    ├── roc_curves.png
-    └── confusion_matrices.png
+    ├── saved_models/
+    │   ├── decision_tree.joblib
+    │   ├── knn.joblib
+    │   ├── logistic_regression.joblib
+    │   ├── naive_bayes.joblib
+    │   ├── preprocessor.joblib
+    │   └── random_forest_ensemble.joblib
+    ├── plots/
+    │   ├── class_distribution.png
+    │   ├── metrics_comparison.png
+    │   ├── roc_curves.png
+    │   └── confusion_matrices.png
+    └── screenshots/
+        ├── 01_notebook_overview_and_imports.png
+        ├── 02_notebook_overview_repeat.png
+        ├── 03_dataset_loading_code.png
+        ├── 04_dataset_preview.png
+        ├── 05_class_distribution.png
+        ├── 06_missing_value_analysis.png
+        ├── 07_stratified_split_and_feature_groups.png
+        ├── 08_preprocessing_results.png
+        ├── 09_metrics_table_output.png
+        ├── 10_roc_curves.png
+        ├── 11_metrics_comparison.png
+        ├── 11_metrics_comparison_bits_capture.png
+        ├── 12_model_ranking_summary.png
+        ├── 13_confusion_matrices.png
+        └── 13_confusion_matrices_bits_capture.png
 ```
 
 1. Clone the repository and enter the project folder:
@@ -112,8 +148,12 @@ project-folder/
 
 5. Run the notebook cells in order. It loads the dataset, preprocesses and splits the data, trains the five models, and writes the model artifacts and evaluation plots. Skip the final Google Colab-only cell when running locally.
 
-`requirements.txt` lists the Python dependencies. The saved estimators and fitted preprocessing pipeline are in `model/`; the held-out test split is `test_data.csv`.
+`requirements.txt` lists the Python dependencies. The saved estimators and fitted preprocessing pipeline are in `model/saved_models/`; generated plots are in `model/plots/`; Prayogshala screenshots are in `model/screenshots/`; the held-out test split is `test_data.csv`.
 
 ## 7. BITS Virtual Lab screenshot
 
-**Pending:** Add a screenshot of the assignment execution on BITS Virtual Lab before final submission. No BITS Virtual Lab screenshot was included in the supplied files.
+The following screenshots document the notebook execution in Prayogshala BITS Virtual Lab. Temporary session-token text is redacted; the BITS lab identifier and notebook content remain visible.
+
+![Notebook running in Prayogshala BITS Virtual Lab](model/screenshots/01_notebook_overview_and_imports.png)
+
+![Model ranking and execution results in Prayogshala BITS Virtual Lab](model/screenshots/12_model_ranking_summary.png)

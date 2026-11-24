@@ -1,8 +1,8 @@
-# Myocardial Infarction Complications — 48-Hour Mortality Prediction
+# Myocardial Infarction Complications — Lethal Outcome Classification
 
 ## 1. Problem statement
 
-Acute myocardial infarction (MI) can lead to serious complications and in-hospital mortality. This project compares five supervised classification models for predicting a binary lethal outcome (`LET_IS > 0`) using clinical admission, ECG, laboratory, and early ICU therapy data.
+Acute myocardial infarction (MI) can lead to serious complications and in-hospital mortality. This project compares five supervised classification models for predicting the recorded binary lethal outcome (`LET_IS > 0`) using clinical admission, ECG, laboratory, and early ICU therapy data. Day-3 ICU measurements are excluded from the predictors; the project does not claim a specific 48-hour outcome horizon.
 
 This is an educational machine-learning assignment, not a medical diagnostic tool.
 
@@ -76,7 +76,7 @@ The notebook-generated plots are also available in [`model/plots/`](model/plots/
 
 ## 5. Data preprocessing
 
-- Removed the patient ID, the other 11 complication/outcome columns, and day-3 ICU features (`R_AB_3_n`, `NA_R_3_n`, `NOT_NA_3_n`) to avoid target leakage and keep the prediction window within 48 hours.
+- Removed the patient ID, the other 11 complication/outcome columns, and day-3 ICU features (`R_AB_3_n`, `NA_R_3_n`, `NOT_NA_3_n`) to avoid target leakage and restrict predictors to measurements available before day 3.
 - Checked for duplicates; none were found.
 - Dropped four features with more than 50% missing values: `KFK_BLOOD` (99.76%), `IBS_NASL` (95.76%), `D_AD_KBRIG` (63.29%), and `S_AD_KBRIG` (63.29%).
 - Split the remaining records 80:20 with stratification and `random_state=42`.

@@ -20,7 +20,7 @@ This is an educational machine-learning assignment, not a medical diagnostic too
 
 The dataset was selected because it is a public clinical classification dataset with more than 1,000 records and 12 features, contains meaningful missing-value and class-imbalance challenges, and supports a clinically relevant comparison of binary classifiers.
 
-![Target class distribution captured in Prayogshala BITS Virtual Lab](model/screenshots/05_class_distribution.png)
+![Target class distribution captured in Prayogshala BITS Virtual Lab](model/screenshots/03_class_distribution.png)
 
 ## 3. GitHub repository
 
@@ -52,13 +52,13 @@ The fitted estimators use the same training-only preprocessing described below. 
 
 ### Metric visualizations
 
-![Complete comparison of all six evaluation metrics](model/screenshots/11_metrics_comparison.png)
+![Complete comparison of all six evaluation metrics](model/screenshots/10_metrics_comparison.png)
 
-![ROC curves and AUC comparison captured in Prayogshala BITS Virtual Lab](model/screenshots/10_roc_curves.png)
+![ROC curves and AUC comparison captured in Prayogshala BITS Virtual Lab](model/screenshots/08_roc_curves.png)
 
 ![Complete confusion matrices for all five models](model/screenshots/13_confusion_matrices.png)
 
-The original BITS captures of the metric comparison and confusion matrices are retained as [`11_metrics_comparison_bits_capture.png`](model/screenshots/11_metrics_comparison_bits_capture.png) and [`13_confusion_matrices_bits_capture.png`](model/screenshots/13_confusion_matrices_bits_capture.png). Those captures are clipped on the left; the complete charts above come from the notebook's full-resolution plot exports.
+The original BITS captures of the metric comparison and confusion matrices are retained as [`09_Distorted_metrics_comparison_bits_capture.png`](model/screenshots/09_Distorted_metrics_comparison_bits_capture.png) and [`12distorted_confusion_matrices_bits_capture.png`](model/screenshots/12distorted_confusion_matrices_bits_capture.png). Those captures are clipped on the left; the complete charts above come from the notebook's full-resolution plot exports.
 
 The notebook-generated plots are also available in [`model/plots/`](model/plots/): [metric comparison](model/plots/metrics_comparison.png), [ROC curves](model/plots/roc_curves.png), and [confusion matrices](model/plots/confusion_matrices.png).
 
@@ -83,7 +83,7 @@ The notebook-generated plots are also available in [`model/plots/`](model/plots/
 - Fitted preprocessing on the training data only: median imputation and standard scaling for continuous features; most-frequent imputation and scaling for ordinal features; most-frequent imputation for binary features; and most-frequent imputation plus one-hot encoding for categorical features.
 - Saved the held-out test features and target in [`test_data.csv`](test_data.csv).
 
-![Missing-value analysis executed in Prayogshala BITS Virtual Lab](model/screenshots/06_missing_value_analysis.png)
+![Missing-value analysis executed in Prayogshala BITS Virtual Lab](model/screenshots/04_missing_value_analysis.png)
 
 ## 6. Execution instructions and repository contents
 
@@ -110,20 +110,18 @@ project-folder/
     │   └── confusion_matrices.png
     └── screenshots/
         ├── 01_notebook_overview_and_imports.png
-        ├── 02_notebook_overview_repeat.png
-        ├── 03_dataset_loading_code.png
-        ├── 04_dataset_preview.png
-        ├── 05_class_distribution.png
-        ├── 06_missing_value_analysis.png
-        ├── 07_stratified_split_and_feature_groups.png
-        ├── 08_preprocessing_results.png
-        ├── 09_metrics_table_output.png
-        ├── 10_roc_curves.png
-        ├── 11_metrics_comparison.png
-        ├── 11_metrics_comparison_bits_capture.png
-        ├── 12_model_ranking_summary.png
-        ├── 13_confusion_matrices.png
-        └── 13_confusion_matrices_bits_capture.png
+        ├── 02_dataset_loading_code.png
+        ├── 03_class_distribution.png
+        ├── 04_missing_value_analysis.png
+        ├── 05_stratified_split_and_feature_groups.png
+        ├── 06_preprocessing_results.png
+        ├── 07_metrics_table_output.png
+        ├── 08_roc_curves.png
+        ├── 09_Distorted_metrics_comparison_bits_capture.png
+        ├── 10_metrics_comparison.png
+        ├── 11_model_ranking_summary.png
+        ├── 12distorted_confusion_matrices_bits_capture.png
+        └── 13_confusion_matrices.png
 ```
 
 1. Clone the repository and enter the project folder:
@@ -156,4 +154,4 @@ The following screenshots document the notebook execution in Prayogshala BITS Vi
 
 ![Notebook running in Prayogshala BITS Virtual Lab](model/screenshots/01_notebook_overview_and_imports.png)
 
-![Model ranking and execution results in Prayogshala BITS Virtual Lab](model/screenshots/12_model_ranking_summary.png)
+![Model ranking and execution results in Prayogshala BITS Virtual Lab](model/screenshots/11_model_ranking_summary.png)
